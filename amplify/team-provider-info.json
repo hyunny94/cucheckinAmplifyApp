@@ -1,0 +1,20 @@
+{
+    "dev": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cucheckin-dev-223226-authRole",
+            "UnauthRoleArn": "arn:aws:iam::383586395232:role/amplify-cucheckin-dev-223226-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::383586395232:role/amplify-cucheckin-dev-223226-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-cucheckin-dev-223226-deployment",
+            "UnauthRoleName": "amplify-cucheckin-dev-223226-unauthRole",
+            "StackName": "amplify-cucheckin-dev-223226",
+            "StackId": "arn:aws:cloudformation:us-west-2:383586395232:stack/amplify-cucheckin-dev-223226/8e4e81b0-e80d-11ea-bf5d-0a9cd3354c10",
+            "AmplifyAppId": "d25drx5l5rwy8c"
+        },
+        "categories": {
+            "auth": {
+                "cognito6afd5994": {}
+            }
+        }
+    }
+}
