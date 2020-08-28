@@ -1,0 +1,7 @@
+{
+    "tableName": "location",
+    "partitionKeyName": "name",
+    "partitionKeyType": "S",
+    "sortKeyName": "currentOccupancy",
+    "sortKeyType": "N"
+}

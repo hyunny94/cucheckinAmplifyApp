@@ -1,0 +1,9 @@
+type Location @model {
+  id: ID!
+  name: String!
+  abbName: String!
+  area: String!
+  cap: Int
+  currOccupancy: Int!
+  isOpen: Boolean!
+}
