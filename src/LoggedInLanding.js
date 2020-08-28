@@ -1,4 +1,5 @@
 import React from 'react';
+import { withAuthenticator, AmplifySignOut } from '@aws-amplify/ui-react';
 
 class LoggedInLanding extends React.Component {
     
@@ -6,12 +7,13 @@ class LoggedInLanding extends React.Component {
         return (
             <div>
                 <h1>CUCheckIn</h1>
-                <button onClick={this.props.logOutClickHandler}>
+                <AmplifySignOut />
+                {/* <button onClick={this.props.logOutClickHandler}>
                     Log Out
-                </button>
+                </button> */}
             </div>
         );
     }
 }
 
-export default LoggedInLanding;
+export default withAuthenticator(LoggedInLanding);
