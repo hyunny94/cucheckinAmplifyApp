@@ -18,7 +18,7 @@ class LandingPage extends React.Component {
         .then(result => this.setState({
             locations: result.data.listLocations.items
         }))
-        .catch(err => console.log(err))
+        .catch(err => console.log(err)) //TODO: Remove console logs for production
     };
 
     handleClick = e => {

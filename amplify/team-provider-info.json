@@ -35,6 +35,12 @@
             },
             "function": {
                 "CUCheckInLambda": {}
+            },
+            "hosting": {
+                "amplifyhosting": {
+                    "appId": "d25drx5l5rwy8c",
+                    "type": "cicd"
+                }
             }
         }
     }
