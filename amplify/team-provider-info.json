@@ -16,5 +16,26 @@
                 "cognito6afd5994": {}
             }
         }
+    },
+    "prod": {
+        "awscloudformation": {
+            "AuthRoleName": "amplify-cucheckin-prod-220352-authRole",
+            "UnauthRoleArn": "arn:aws:iam::383586395232:role/amplify-cucheckin-prod-220352-unauthRole",
+            "AuthRoleArn": "arn:aws:iam::383586395232:role/amplify-cucheckin-prod-220352-authRole",
+            "Region": "us-west-2",
+            "DeploymentBucketName": "amplify-cucheckin-prod-220352-deployment",
+            "UnauthRoleName": "amplify-cucheckin-prod-220352-unauthRole",
+            "StackName": "amplify-cucheckin-prod-220352",
+            "StackId": "arn:aws:cloudformation:us-west-2:383586395232:stack/amplify-cucheckin-prod-220352/39656230-eb2e-11ea-8dce-06dff6e64d82",
+            "AmplifyAppId": "d25drx5l5rwy8c"
+        },
+        "categories": {
+            "auth": {
+                "cognito6afd5994": {}
+            },
+            "function": {
+                "CUCheckInLambda": {}
+            }
+        }
     }
 }
