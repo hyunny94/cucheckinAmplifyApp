@@ -10,7 +10,6 @@ class LandingPage extends React.Component {
 
     state = {
         currMenu: 'mail',
-
         openLocations: [],
         categoryToLocations: {},
     };
@@ -50,10 +49,12 @@ class LandingPage extends React.Component {
             <div>
                 <Menu onClick={this.handleClick} selectedKeys={[currMenu]} mode="horizontal">
                     <Menu.Item key="central" >
-                        Central
+                        <a href="#Central">
+                            Central
+                        </a>
                     </Menu.Item>
                     <Menu.Item key="west">
-                        <a href="https://ant.design" target="_blank" rel="noopener noreferrer">
+                        <a href="#West">
                             West
                         </a>
                     </Menu.Item>
@@ -61,8 +62,8 @@ class LandingPage extends React.Component {
                 
                 {Object.keys(categoryToLocations).map((category, index) => {
                     return (
-                        <div>
-                            <h1 key={index}>{category}</h1>
+                        <div key={index} id={category}>
+                            <h1>{category}</h1>
                             {categoryToLocations[category].map((loc, index) => {
                                 const { name, abbName, area, cap, currOccupancy, id, isOpen } = loc;
                                 return <LocationView key={index} name={name} abbName={abbName} area={area} cap={cap} currOccupancy={currOccupancy} id={id} isOpen={isOpen} checkInHandler={this.checkIn} />
