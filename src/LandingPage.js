@@ -10,14 +10,33 @@ class LandingPage extends React.Component {
 
     state = {
         currMenu: 'mail',
-        locations: [],
+
+        openLocations: [],
+        categoryToLocations: {},
     };
 
     componentDidMount() {
+        // query locations and pre-process the list into the following data structures
+        // 1. openLocations: list of open locations
+        // 2. categoryToLocations: object where key is the category of the location and value is a list of locations with the specific category
         API.graphql(graphqlOperation(queries.listLocations))
-        .then(result => this.setState({
-            locations: result.data.listLocations.items
-        }))
+        .then(result => {
+            let categoryToLocations = {}
+            let openLocations = []
+            for (const loc of result.data.listLocations.items) {
+                // add to [categoryToLocations]
+                if (loc.area in categoryToLocations) {
+                    categoryToLocations[loc.area].push(loc);
+                } else {
+                    categoryToLocations[loc.area] = [loc];
+                }
+                // add to [openLocations]
+                if (loc.isOpen) openLocations.push(loc);
+            }
+            this.setState({
+                openLocations, categoryToLocations
+            })
+        })
         .catch(err => console.log(err)) //TODO: Remove console logs for production
     };
 
@@ -26,7 +45,7 @@ class LandingPage extends React.Component {
     };
     
     render() {
-        const { currMenu, locations } = this.state;
+        const { currMenu, categoryToLocations } = this.state;
         return (
             <div>
                 <Menu onClick={this.handleClick} selectedKeys={[currMenu]} mode="horizontal">
@@ -39,10 +58,17 @@ class LandingPage extends React.Component {
                         </a>
                     </Menu.Item>
                 </Menu>
-                <h1>CUCheckIn Logged In</h1>
-                {locations.map((value, index) => {
-                    const { name, abbName, area, cap, currOccupancy, id, isOpen } = value;
-                    return <LocationView key={index} name={name} abbName={abbName} area={area} cap={cap} currOccupancy={currOccupancy} id={id} isOpen={isOpen} checkInHandler={this.checkIn} />
+                
+                {Object.keys(categoryToLocations).map((category, index) => {
+                    return (
+                        <div>
+                            <h1 key={index}>{category}</h1>
+                            {categoryToLocations[category].map((loc, index) => {
+                                const { name, abbName, area, cap, currOccupancy, id, isOpen } = loc;
+                                return <LocationView key={index} name={name} abbName={abbName} area={area} cap={cap} currOccupancy={currOccupancy} id={id} isOpen={isOpen} checkInHandler={this.checkIn} />
+                            })}
+                        </div>
+                    )
                 })}
                 <AmplifySignOut />
             </div>

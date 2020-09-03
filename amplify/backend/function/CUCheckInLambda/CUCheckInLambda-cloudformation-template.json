@@ -68,8 +68,8 @@
 				"Layers": [],
 				"Timeout": "25",
 				"Code": {
-					"S3Bucket": "amplify-cucheckin-prod-220352-deployment",
-					"S3Key": "amplify-builds/CUCheckInLambda-56683774445939564c5a-build.zip"
+					"S3Bucket": "amplify-cucheckin-dev-223226-deployment",
+					"S3Key": "amplify-builds/CUCheckInLambda-394f326531456d41706c-build.zip"
 				}
 			}
 		},
