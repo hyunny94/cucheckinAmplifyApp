@@ -5,12 +5,26 @@ export const onCreateLocation = /* GraphQL */ `
   subscription OnCreateLocation {
     onCreateLocation {
       id
-      name
-      abbName
-      area
-      cap
-      currOccupancy
-      isOpen
+      Name
+      Category
+      ImageURL
+      Address
+      Latitude
+      Longitude
+      Notes
+      AKA
+      Cap
+      CurrOccupancy
+      IsOpen
+      CheckedInUsers {
+        items {
+          id
+          LocationID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -20,12 +34,26 @@ export const onUpdateLocation = /* GraphQL */ `
   subscription OnUpdateLocation {
     onUpdateLocation {
       id
-      name
-      abbName
-      area
-      cap
-      currOccupancy
-      isOpen
+      Name
+      Category
+      ImageURL
+      Address
+      Latitude
+      Longitude
+      Notes
+      AKA
+      Cap
+      CurrOccupancy
+      IsOpen
+      CheckedInUsers {
+        items {
+          id
+          LocationID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
       createdAt
       updatedAt
     }
@@ -35,12 +63,113 @@ export const onDeleteLocation = /* GraphQL */ `
   subscription OnDeleteLocation {
     onDeleteLocation {
       id
-      name
-      abbName
-      area
-      cap
-      currOccupancy
-      isOpen
+      Name
+      Category
+      ImageURL
+      Address
+      Latitude
+      Longitude
+      Notes
+      AKA
+      Cap
+      CurrOccupancy
+      IsOpen
+      CheckedInUsers {
+        items {
+          id
+          LocationID
+          createdAt
+          updatedAt
+        }
+        nextToken
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onCreateUser = /* GraphQL */ `
+  subscription OnCreateUser {
+    onCreateUser {
+      id
+      LocationID
+      CheckedInLocation {
+        id
+        Name
+        Category
+        ImageURL
+        Address
+        Latitude
+        Longitude
+        Notes
+        AKA
+        Cap
+        CurrOccupancy
+        IsOpen
+        CheckedInUsers {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onUpdateUser = /* GraphQL */ `
+  subscription OnUpdateUser {
+    onUpdateUser {
+      id
+      LocationID
+      CheckedInLocation {
+        id
+        Name
+        Category
+        ImageURL
+        Address
+        Latitude
+        Longitude
+        Notes
+        AKA
+        Cap
+        CurrOccupancy
+        IsOpen
+        CheckedInUsers {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
+      createdAt
+      updatedAt
+    }
+  }
+`;
+export const onDeleteUser = /* GraphQL */ `
+  subscription OnDeleteUser {
+    onDeleteUser {
+      id
+      LocationID
+      CheckedInLocation {
+        id
+        Name
+        Category
+        ImageURL
+        Address
+        Latitude
+        Longitude
+        Notes
+        AKA
+        Cap
+        CurrOccupancy
+        IsOpen
+        CheckedInUsers {
+          nextToken
+        }
+        createdAt
+        updatedAt
+      }
       createdAt
       updatedAt
     }

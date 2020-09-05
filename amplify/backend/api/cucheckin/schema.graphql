@@ -1,9 +1,21 @@
 type Location @model {
   id: ID!
-  name: String!
-  abbName: String!
-  area: String!
-  cap: Int
-  currOccupancy: Int!
-  isOpen: Boolean!
+  Name: String!
+  Category: String!
+  ImageURL: String!
+  Address: String!
+  Latitude: Float!
+  Longitude: Float!
+  Notes: String!
+  AKA: String!
+  Cap: Int!
+  CurrOccupancy: Int!
+  IsOpen: Boolean!
+  CheckedInUsers: [User] @connection(keyName: "byLocation", fields: ["id"])
+}
+
+type User @model @key(name: "byLocation", fields: ["LocationID"]) {
+  id: ID!
+  LocationID: ID!
+  CheckedInLocation: Location @connection(fields: ["LocationID"])
 }
