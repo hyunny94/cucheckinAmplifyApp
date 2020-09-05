@@ -19,7 +19,12 @@ export const getLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -64,26 +69,12 @@ export const getUser = /* GraphQL */ `
   query GetUser($id: ID!) {
     getUser(id: $id) {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
@@ -98,23 +89,12 @@ export const listUsers = /* GraphQL */ `
     listUsers(filter: $filter, limit: $limit, nextToken: $nextToken) {
       items {
         id
-        LocationID
-        CheckedInLocation {
-          id
-          Name
-          Category
-          ImageURL
-          Address
-          Latitude
-          Longitude
-          Notes
-          AKA
-          Cap
-          CurrOccupancy
-          IsOpen
-          createdAt
-          updatedAt
-        }
+        CheckedInLocationId
+        IsAdmin
+        Email
+        UserName
+        PhoneNumber
+        UserPoolId
         createdAt
         updatedAt
       }

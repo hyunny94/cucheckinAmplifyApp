@@ -22,7 +22,12 @@ export const createLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -54,7 +59,12 @@ export const updateLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -86,7 +96,12 @@ export const deleteLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -104,26 +119,12 @@ export const createUser = /* GraphQL */ `
   ) {
     createUser(input: $input, condition: $condition) {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
@@ -136,26 +137,12 @@ export const updateUser = /* GraphQL */ `
   ) {
     updateUser(input: $input, condition: $condition) {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
@@ -168,26 +155,12 @@ export const deleteUser = /* GraphQL */ `
   ) {
     deleteUser(input: $input, condition: $condition) {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }

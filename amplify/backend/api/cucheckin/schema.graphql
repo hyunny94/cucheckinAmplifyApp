@@ -14,8 +14,12 @@ type Location @model {
   CheckedInUsers: [User] @connection(keyName: "byLocation", fields: ["id"])
 }
 
-type User @model @key(name: "byLocation", fields: ["LocationID"]) {
+type User @model @key(name: "byLocation", fields: ["CheckedInLocationId"]) {
   id: ID!
-  LocationID: ID!
-  CheckedInLocation: Location @connection(fields: ["LocationID"])
+  CheckedInLocationId: ID
+  IsAdmin: Boolean!
+  Email: String!
+  UserName: String!
+  PhoneNumber: String!
+  UserPoolId: String!
 }

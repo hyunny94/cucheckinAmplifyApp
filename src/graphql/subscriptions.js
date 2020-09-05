@@ -19,7 +19,12 @@ export const onCreateLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -48,7 +53,12 @@ export const onUpdateLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -77,7 +87,12 @@ export const onDeleteLocation = /* GraphQL */ `
       CheckedInUsers {
         items {
           id
-          LocationID
+          CheckedInLocationId
+          IsAdmin
+          Email
+          UserName
+          PhoneNumber
+          UserPoolId
           createdAt
           updatedAt
         }
@@ -92,26 +107,12 @@ export const onCreateUser = /* GraphQL */ `
   subscription OnCreateUser {
     onCreateUser {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
@@ -121,26 +122,12 @@ export const onUpdateUser = /* GraphQL */ `
   subscription OnUpdateUser {
     onUpdateUser {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
@@ -150,26 +137,12 @@ export const onDeleteUser = /* GraphQL */ `
   subscription OnDeleteUser {
     onDeleteUser {
       id
-      LocationID
-      CheckedInLocation {
-        id
-        Name
-        Category
-        ImageURL
-        Address
-        Latitude
-        Longitude
-        Notes
-        AKA
-        Cap
-        CurrOccupancy
-        IsOpen
-        CheckedInUsers {
-          nextToken
-        }
-        createdAt
-        updatedAt
-      }
+      CheckedInLocationId
+      IsAdmin
+      Email
+      UserName
+      PhoneNumber
+      UserPoolId
       createdAt
       updatedAt
     }
